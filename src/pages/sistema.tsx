@@ -2,7 +2,7 @@ import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPane
 import { AddIcon, ArrowRightIcon, DeleteIcon, DragHandleIcon, EditIcon, LinkIcon } from '@chakra-ui/icons'
 import { content, language, section, subsection } from "../interfaces/contentApi";
 import React, { useEffect, useState, useContext } from "react";
-import AsideSystem from "@/components/AsideSystem";
+import AsideSystem from "@/components/system/AsideSystem";
 import ModalsContainer from "@/modals/ModalsContainer";
 import MainSystem from "@/components/MainSystem";
 import { PageContext } from "@/context/PageProvider";

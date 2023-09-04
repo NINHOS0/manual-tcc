@@ -1,0 +1,67 @@
+ {/* {contentSelected && contentSelected.content?.map((cont: item, i: number) => {
+
+          if (itemSelected) {
+            return (
+              cont.type === "title" ? (
+                <Flex pos={"absolute"} top={mousePos.y} alignItems={"center"} gap={4} w={"full"} _hover={{ backgroundColor: "whiteAlpha.50" }} px={4}>
+                  <IconButton aria-label="f" icon={<DragHandleIcon />} onClick={() => setItemSelected(cont)} />
+
+                  <Editable defaultValue={cont.value} fontSize={cont.size} fontWeight={"bold"} w={"full"}>
+                    <EditablePreview />
+                    <EditableInput />
+                  </Editable>
+                  <IconButton aria-label="Editar" variant={"unstyled"} icon={<EditIcon />} p={0} />
+                </Flex>
+              ) : ''
+            )
+          } else {
+            return (
+              cont.type === "title" ? (
+                <Flex alignItems={"center"} gap={4} w={"full"} _hover={{ backgroundColor: "whiteAlpha.50" }} px={4}>
+                  <IconButton aria-label="f" icon={<DragHandleIcon />} onMouseDownCapture={() => setItemSelected(cont)} onMouseUp={() => setItemSelected(null)} />
+
+                  <Editable defaultValue={cont.value} fontSize={cont.size} fontWeight={"bold"} w={"full"}>
+                    <EditablePreview />
+                    <EditableInput />
+                  </Editable>
+                  <IconButton aria-label="Editar" variant={"unstyled"} icon={<EditIcon />} p={0} />
+                </Flex>
+              ) : ''
+            )
+          } */
+
+          // <>
+          //   {cont.type === "text" ? (
+          //     <Flex alignItems={"center"} gap={4} w={"full"} _hover={{ backgroundColor: "whiteAlpha.50" }} px={4}>
+          //       <DragHandleIcon />
+          //       <Editable defaultValue={cont.value} fontSize={cont.size} w={"full"}>
+          //         <EditablePreview />
+          //         <EditableInput />
+          //       </Editable>
+          //       <IconButton aria-label="Editar" variant={"unstyled"} icon={<EditIcon />} p={0} />
+          //     </Flex>
+
+          //   ) : cont.type === "title" ? (
+          //     <Flex alignItems={"center"} gap={4} w={"full"} _hover={{ backgroundColor: "whiteAlpha.50" }} px={4}>
+          //       <IconButton aria-label="f" icon={<DragHandleIcon />} onMouseDownCapture={() => setItemSelected(cont)} onMouseUp={() => setItemSelected(null)} />
+
+          //       <Editable defaultValue={cont.value} fontSize={cont.size} fontWeight={"bold"} w={"full"}>
+          //         <EditablePreview />
+          //         <EditableInput />
+          //       </Editable>
+          //       <IconButton aria-label="Editar" variant={"unstyled"} icon={<EditIcon />} p={0} />
+          //     </Flex>
+          //   ) : ''}
+          // </>
+          
+        {/* {itemSelected ? (
+          <Box pos={"absolute"} top={mousePos.y} alignItems={"center"} gap={4} w={"full"} _hover={{ backgroundColor: "whiteAlpha.50" }} px={4}>
+            <IconButton aria-label="f" icon={<DragHandleIcon />} />
+
+            <Editable fontWeight={"bold"} w={"full"}>
+              <EditablePreview />
+              <EditableInput />
+            </Editable>
+            <IconButton aria-label="Editar" variant={"unstyled"} icon={<EditIcon />} p={0} />
+          </Box>
+        ) : ''} */}
