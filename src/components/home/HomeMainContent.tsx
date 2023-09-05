@@ -1,21 +1,22 @@
 import { Skeleton, SkeletonText, Stack } from "@chakra-ui/react";
 import React from "react";
 import HomeMainItem from "./HomeMainItem";
-import { content, section, subsection } from "@/interfaces/contentApi";
+import { content, section, subsection } from "@/interfaces/contentProps";
 import { useRouter } from "next/router";
 
 interface HomeMainContentProps {
-  data: { process: boolean, result: content },
+  isLoading: boolean,
+  data: content,
   currentLanguage: string
 }
 
-export default function HomeMainContent({data, currentLanguage}: HomeMainContentProps) {
+export default function HomeMainContent({isLoading, data, currentLanguage}: HomeMainContentProps) {
   const route = useRouter()
 
   return (
-    <Stack textAlign={"justify"} h={{ md: "calc(100vh - 13em)" }} overflowY={{ md: "auto" }} pr={4}>
+    <Stack textAlign={"justify"} h={{ md: "calc(100vh - 13em)" }} overflowY={{ md: "auto" }}>
 
-      {data.process ? (
+      {isLoading ? (
         <>
           <Skeleton h={6} w={40} startColor='gray.500' endColor='gray.300' />
           <SkeletonText startColor='gray.500' endColor='gray.300' mt='2' noOfLines={4} spacing='2' skeletonHeight='2.5' />
@@ -23,7 +24,7 @@ export default function HomeMainContent({data, currentLanguage}: HomeMainContent
         </>
       ) : (
         <>
-          {route.query.page && data.result[currentLanguage].map((sec: section) => (
+          {route.query.page && data[currentLanguage].map((sec: section) => (
             <React.Fragment key={sec.id}>
               {sec.content && sec.id === route.query.page![0] ? sec.content.map((item, i) => (
                 <HomeMainItem

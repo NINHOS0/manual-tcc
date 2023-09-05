@@ -1,29 +1,29 @@
-import useApi from "@/hooks/useApi";
-import { useRouter } from "next/router";
+import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
-export const PageContext = createContext()
+export const PageContext = createContext();
 
-export default function PageProvider({children}) {
-  const route = useRouter()
-
-  const data = useApi("http://localhost:5000/content")
-  const languages = useApi("http://localhost:5000/languages")
+export default function PageProvider({ children }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState();
+  const [languages, setLanguages] = useState();
 
   const [currentLanguage, setCurrentLanguage] = useState("");
 
   useEffect(() => {
-    let value
+    async function getData() {
+      await axios.get("http://localhost:3000/api/content").then((res) => setData(res.data));
+      await axios.get("http://localhost:3000/api/language").then((res) => setLanguages(res.data));
+      setIsLoading(false);
+    }
+    getData()
 
-    value = localStorage.getItem("currentLanguage") || "pt-br"
-    setCurrentLanguage(value)
-  }, [])
+    let value;
+    value = localStorage.getItem("currentLanguage") || "pt-br";
+    setCurrentLanguage(value);
+  }, []);
 
-  useEffect(() => localStorage.setItem("currentLanguage", currentLanguage), [currentLanguage])
+  useEffect(() => localStorage.setItem("currentLanguage", currentLanguage), [currentLanguage]);
 
-  return (
-    <PageContext.Provider value={{data, languages, currentLanguage, setCurrentLanguage}}>
-      {children}
-    </PageContext.Provider>
-  )
+  return <PageContext.Provider value={{ isLoading, data, languages, currentLanguage, setCurrentLanguage }}>{children}</PageContext.Provider>;
 }
